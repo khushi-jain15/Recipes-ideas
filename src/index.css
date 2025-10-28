@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  --animation-fade-in: fadeIn 0.5s ease-in-out;
+  --animation-slide-up: slideUp 0.3s ease-out;
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+
+@layer components {
+  .gradient-bg {
+    @apply bg-linear-to-r from-purple-600 via-blue-600 to-purple-700;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-xl;
+  }
+  
+  .btn-primary {
+    @apply bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+  
+  .btn-secondary {
+    @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300;
+  }
+}
